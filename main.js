@@ -1,5 +1,5 @@
 
-function ucitajSelect(putanja, elementId, pocetnaVrednost = undefined) {
+function ucitajSelect(putanja, elementId) {
     $.getJSON(putanja, function (res) {
         if (!res.status) {
             alert(res.error);
@@ -13,13 +13,10 @@ function ucitajSelect(putanja, elementId, pocetnaVrednost = undefined) {
                 </option>
             `)
         }
-        if (pocetnaVrednost) {
-            $('#' + elementId).val(pocetnaVrednost);
-        }
     })
 }
 
-function ucitajUTabelu(putanja, elementId, rowRenderer) {
+function ucitajUTabelu(putanja, elementId, rowRenderer, filter) {
 
     $.getJSON(putanja, function (res) {
         if (!res.status) {
@@ -28,7 +25,9 @@ function ucitajUTabelu(putanja, elementId, rowRenderer) {
         }
         $('#' + elementId).html('');
         for (let element of res.data) {
-            $('#' + elementId).append(rowRenderer(element))
+            if (!filter || filter(element)) {
+                $('#' + elementId).append(rowRenderer(element))
+            }
         }
         return res.data;
     })

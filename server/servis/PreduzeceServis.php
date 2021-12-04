@@ -12,20 +12,20 @@ class PreduzeceServis{
         $res=[];
         foreach($data as $element){
             $res[]=[
-                "id"=>$data->id,
-                "sifraDelatnosti"=>$data->sifra_delatnosti,
-                "maticniBroj"=>$data->maticni_broj,
-                "naziv"=>$data->naziv,
-                "brojTelefona"=>$data->broj_telefona,
-                "adresa"=>$data->adresa,
-                "odgovornoLice"=>$data->odgovorno_lice,
+                "id"=>$element->id,
+                "sifraDelatnosti"=>$element->sifra_delatnosti,
+                "maticniBroj"=>$element->maticni_broj,
+                "naziv"=>$element->naziv,
+                "brojTelefona"=>$element->broj,
+                "adresa"=>$element->adresa,
+                "odgovornoLice"=>$element->odgovorno_lice,
                 "grad"=>[
-                    "id"=>$data->grad,
-                    "naziv"=>$data->gradNaziv
+                    "id"=>$element->grad,
+                    "naziv"=>$element->gradNaziv
                 ],
                 "tip"=>[
-                    "id"=>$data->tip,
-                    "naziv"=>$data->tipNaziv
+                    "id"=>$element->tip,
+                    "naziv"=>$element->tipNaziv
                 ]
 
             ];
@@ -33,14 +33,14 @@ class PreduzeceServis{
         return $res;
     }
     public function kreiraj($preduzeceDto){
-        $this->broker->izvrsiIzmenu("insert into preduzece(sifra_delatnosti,maticni_broj,tip,naziv,broj_telefona,adresa,odgovorno_lice,grad)".
+        $this->broker->izvrsiIzmenu("insert into preduzece(sifra_delatnosti,maticni_broj,tip,naziv,broj,adresa,odgovorno_lice,grad)".
                                                     " values('".$preduzeceDto['sifraDelatnosti']."','".$preduzeceDto['maticniBroj']."',".$preduzeceDto['tip'].
                                                                 ",'".$preduzeceDto['naziv']."','".$preduzeceDto['brojTelefona']."','".$preduzeceDto['adresa']."','".$preduzeceDto['odgovornoLice']."',".$preduzeceDto['grad'].")");
     }
     public function izmeni($id,$preduzeceDto){
         $this->broker->izvrsiIzmenu("update preduzece set naziv='".$preduzeceDto['naziv']."', sifra_delatnosti='".$preduzeceDto['sifraDelatnosti'].
                                         "', maticni_broj='".$preduzeceDto['maticniBroj']."', tip=".$preduzeceDto['tip'].
-                                        ", broj_telefona='".$preduzeceDto['brojTelefona']."', adresa='".$preduzeceDto['adresa']."', odgovorno_lice='".$preduzeceDto['odgovornoLice'].
+                                        ", broj='".$preduzeceDto['brojTelefona']."', adresa='".$preduzeceDto['adresa']."', odgovorno_lice='".$preduzeceDto['odgovornoLice'].
                                         "', grad=".$preduzeceDto['grad']." where id=".$id);
     }
     public function obrisi($id){
