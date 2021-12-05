@@ -1,0 +1,13 @@
+Aplikacija omogucava CRUD operacije nad domenskim objektima grad i preduzece.
+Funkcionalnosti fajlova su:
+	- layout/header.php - sadrzi html koji je zajednicki za obe strane a odnosi se na navigaciju
+	- gradovi.php - predstavlja stranicu za rad sa gradovima. Na ovoj stranici dat je prikaz svih gradova i omoguceno je njihovo kreiranje izmena i brisanje.
+	- index.php - predstavlja stranicu za rad sa preduzecima(CRUD).
+	- main.js - sadrzi dve util funkcije koje sluze za ucitavanje podataka sa servera(AJAX) i iscrtavanje tih podataka u tabelu i padajuci meni.
+	- baza.sql - sadrzi skriptu za generisanje baze
+	- server/broker.php - predstavlja klasu koja ce se koristiti pri komunikaciji sa bazom podataka. Konekcija se ostvaruje pomocu objekta klase mysqli. Broker u sebi sadrzi 2 metode, jednu za ucitavanje i drugu za izmenu podataka u bazi.
+	- server/servis/* - U ovom folderu nalaze se klase koje u sebi sadrze poslovnu logiku aplikacije. Svaka servis klasa vezana je za jedan domenski objekat.
+	- server/controller/controller.php - ova klasa sluzi za rutiranje unutar aplikacije. Za svaku rutu potrebno je navesti http metodu kojom se poziva kao i akciju koja se prosledju unutar url - a.
+	- server/tipPreduzeca.php - predstavlja entrypoint za rad sa tipom preduzeca. U njemu se kreira kontroler i definise jedna putanja (vrati sve)
+	- server/grad.php - entrypoint za rad sa gradom. Kreira kontroler i definise 4 rute (vrati sve, kreiraj, izmeni i obrisi)
+	- server/preduzece.php - entrypoint za rad sa preduzecem. Kreira kontroler i definise 4 rute (vrati sve, kreiraj, izmeni i obrisi)

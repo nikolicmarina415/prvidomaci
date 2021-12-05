@@ -29,7 +29,6 @@ function ucitajUTabelu(putanja, elementId, rowRenderer, filter) {
                 $('#' + elementId).append(rowRenderer(element))
             }
         }
-        return res.data;
     })
 
 }

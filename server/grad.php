@@ -1,6 +1,6 @@
 <?php
 include './controller/Controller.php';
-include './servis/GradServis.php';
+require './servis/GradServis.php';
 include 'broker.php';
 $controller =new Controller();
 $controller->dodajDep('gradServis',new GradServis(Broker::getInstance()));

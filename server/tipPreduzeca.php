@@ -1,6 +1,6 @@
 <?php
 include './controller/Controller.php';
-include './servis/TipPreduzecaServis.php';
+require './servis/TipPreduzecaServis.php';
 include 'broker.php';
 $controller =new Controller();
 $controller->dodajDep('tipServis',new TipPreduzecaServis(Broker::getInstance()));

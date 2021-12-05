@@ -1,6 +1,6 @@
 <?php
 include './controller/Controller.php';
-include './servis/PreduzeceServis.php';
+require './servis/PreduzeceServis.php';
 include 'broker.php';
 $controller =new Controller();
 $controller->dodajDep('preduzeceServis',new PreduzeceServis(Broker::getInstance()));

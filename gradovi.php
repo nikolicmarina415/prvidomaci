@@ -120,7 +120,7 @@
                     </td>
                     <td>
                         <button onClick="obrisi(${element.id})" class='btn btn-danger form-control'>Obrisi</button>
-                        </td>
+                    </td>
                 </tr>
             `
         });

@@ -22,11 +22,12 @@ class Broker{
           throw new Exception($this->mysqli->error);
         }
         $rez=[];
-            while($red=$rezultat->fetch_object()){
-                $rez[]=$red;
-            }
-            return $rez;
+        while($red=$rezultat->fetch_object()){
+            $rez[]=$red;
+        }
+        return $rez;
     }
+
     function izvrsiIzmenu($upit){
         $rezultat=$this->mysqli->query($upit);
     
